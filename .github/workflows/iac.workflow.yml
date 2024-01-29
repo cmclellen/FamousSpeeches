@@ -6,6 +6,8 @@ on:
       - master
     paths:
       - 'iac/**'
+      - '.github/workflows/iac.workflow.yml'
+
 
 env:
   ACTIONS_RUNNER_DEBUG: true
