@@ -3,7 +3,8 @@ name: IAC CI & CD
 on:
   push:
     branches:
-      - master
+      - main
+      - feat1234
     paths:
       - 'iac/**'
       - '.github/workflows/iac.workflow.yml'
