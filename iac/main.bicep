@@ -19,8 +19,10 @@ param tags object = {
   Environment: environment
 }
 
+var resourceNameFormat = '{0}-famspch-${environment}'
+
 resource cognitiveService 'Microsoft.CognitiveServices/accounts@2021-10-01' = {
-  name: cognitiveServiceName
+  name: format(resourceNameFormat, 'oai')
   location: location
   sku: {
     name: sku
