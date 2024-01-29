@@ -6,10 +6,18 @@ param cognitiveServiceName string = 'CognitiveService-${uniqueString(resourceGro
 @description('Location for all resources.')
 param location string = resourceGroup().location
 
+@description('The environment.')
+param environment string
+
 @allowed([
   'S0'
 ])
 param sku string = 'S0'
+
+@description('Tags to tag all resources.')
+param tags object = {
+  Environment: environment
+}
 
 resource cognitiveService 'Microsoft.CognitiveServices/accounts@2021-10-01' = {
   name: cognitiveServiceName
