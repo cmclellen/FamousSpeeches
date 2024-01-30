@@ -48,11 +48,3 @@ jobs:
           inlineScript: |
             az group create --name ${{env.RG_NAME}} --location ${{env.LOCATION}}
             az deployment group create --name fmsp${{env.ENVIRONMENT}} --resource-group ${{env.RG_NAME}} --template-file iac/main.bicep --parameters iac/${{env.ENVIRONMENT}}.json
-
-      - uses: bacongobbler/azure-blob-storage-upload@main
-        with:
-          source_dir: data
-          container_name: srcdata
-          connection_string: https://stfmspprd.blob.core.windows.net/
-          extra_args: "--pattern *.pdf"
-          overwrite: "false"
