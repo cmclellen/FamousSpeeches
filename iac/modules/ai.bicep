@@ -26,7 +26,7 @@ resource cognitiveService 'Microsoft.CognitiveServices/accounts@2023-10-01-previ
   }
 
   resource deployment_ada 'deployments' = {
-    name: 'ada-model'
+    name: 'ada-deployment'
     properties: {
       model: {
         format: 'OpenAI'
@@ -38,7 +38,7 @@ resource cognitiveService 'Microsoft.CognitiveServices/accounts@2023-10-01-previ
   }
 
   resource deployment_gpt35 'deployments' = {
-    name: 'gpt35-model'
+    name: 'gpt35-deployment'
     properties: {
       model: {
         format: 'OpenAI'
