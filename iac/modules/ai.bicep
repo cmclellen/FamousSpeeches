@@ -8,7 +8,7 @@ param tags object
 param sku string = 'S0'
 
 resource cognitiveService 'Microsoft.CognitiveServices/accounts@2023-10-01-preview' = {
-  name: format(resourceNameFormat, 'oai', '')
+  name: format(resourceNameFormat, 'oai', '')  
   location: location
   tags: tags
   sku: {

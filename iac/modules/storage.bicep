@@ -18,6 +18,9 @@ resource sa 'Microsoft.Storage/storageAccounts@2023-01-01' = {
 
     resource pdf_container 'containers' = {
       name: 'pdf_docs'
+      properties: {
+        publicAccess: 'Blob'
+      }
     }
   }
 }
