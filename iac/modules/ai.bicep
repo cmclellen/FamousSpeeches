@@ -9,7 +9,7 @@ param tags object
 ])
 param sku string = 'S0'
 
-resource cognitiveService 'Microsoft.CognitiveServices/accounts@2021-10-01' = {
+resource cognitiveService 'Microsoft.CognitiveServices/accounts@2023-10-01-preview' = {
   name: format(resourceNameFormat, 'oai')
   location: location
   tags: tags
@@ -20,6 +20,32 @@ resource cognitiveService 'Microsoft.CognitiveServices/accounts@2021-10-01' = {
   properties: {
     apiProperties: {
       statisticsEnabled: false
+    }
+    networkAcls: {
+      defaultAction: 'Allow'
+    }
+    publicNetworkAccess: 'Enabled'
+  }
+
+  resource deployment_ada 'deployments' = {
+    name: 'ada-model'    
+    properties: {
+      model: {
+        format: 'OpenAI'
+        name: 'text-embedding-ada-002'
+        version: '2'
+      }
+    }
+  }
+
+  resource deployment_gpt35 'deployments' = {
+    name: 'gpt35-model'    
+    properties: {
+      model: {
+        format: 'OpenAI'
+        name: 'gpt-35-turbo'
+        version: '0613'
+      }
     }
   }
 }
