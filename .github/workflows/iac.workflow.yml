@@ -42,12 +42,12 @@ jobs:
         env:
           RG_NAME: "famous-speeches"
           LOCATION: "australiaeast"
-          ENV: prd
+          ENVIRONMENT: prd
         with:
           azcliversion: 2.55.0
           inlineScript: |
             az group create --name ${{env.RG_NAME}} --location ${{env.LOCATION}}
-            az deployment group create --name fmsp${{ENV}} --resource-group ${{env.RG_NAME}} --template-file iac/main.bicep --parameters iac/${{ENV}}.json
+            az deployment group create --name fmsp${{env.ENVIRONMENT}} --resource-group ${{env.RG_NAME}} --template-file iac/main.bicep --parameters iac/${{env.ENVIRONMENT}}.json
 
       - uses: bacongobbler/azure-blob-storage-upload@main
         with:
