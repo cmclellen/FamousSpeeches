@@ -20,7 +20,7 @@ resource sa 'Microsoft.Storage/storageAccounts@2023-01-01' = {
     name: 'default'
 
     resource pdf_container 'containers' = {
-      name: 'input'
+      name: 'sourcedata'
       properties: {
         publicAccess: 'Blob'
       }
