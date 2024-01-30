@@ -19,8 +19,8 @@ resource sa 'Microsoft.Storage/storageAccounts@2023-01-01' = {
   resource defaultBlobService 'blobServices' existing = {
     name: 'default'
 
-    resource pdf_container 'containers' = {
-      name: 'sourcedata'
+    resource srcdata 'containers' = {
+      name: 'srcdata'
       properties: {
         publicAccess: 'Blob'
       }
