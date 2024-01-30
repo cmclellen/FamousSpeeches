@@ -31,7 +31,7 @@ jobs:
       - uses: bacongobbler/azure-blob-storage-upload@main
         with:
           source_dir: data
-          container_name: srcdata
+          container_name: seeddata
           connection_string: ${{ secrets.SEEDDATA_CONNECTION_STRING }}
           extra_args: "--pattern *.pdf"
           overwrite: "false"
