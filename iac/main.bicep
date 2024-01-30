@@ -9,7 +9,7 @@ param tags object = {
   Environment: environment
 }
 
-var resourceNameFormat = '{0}-famspch-${environment}'
+var resourceNameFormat = '{0}-fmsp{1}-${environment}'
 
 module ai './modules/ai.bicep' = {
   name: 'ai'

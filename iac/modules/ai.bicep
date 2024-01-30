@@ -10,7 +10,7 @@ param tags object
 param sku string = 'S0'
 
 resource cognitiveService 'Microsoft.CognitiveServices/accounts@2023-10-01-preview' = {
-  name: format(resourceNameFormat, 'oai')
+  name: format(resourceNameFormat, '', 'oai')
   location: location
   tags: tags
   sku: {
@@ -28,7 +28,7 @@ resource cognitiveService 'Microsoft.CognitiveServices/accounts@2023-10-01-previ
   }
 
   resource deployment_ada 'deployments' = {
-    name: 'ada-model'    
+    name: 'ada-model'
     properties: {
       model: {
         format: 'OpenAI'
@@ -39,7 +39,7 @@ resource cognitiveService 'Microsoft.CognitiveServices/accounts@2023-10-01-previ
   }
 
   resource deployment_gpt35 'deployments' = {
-    name: 'gpt35-model'    
+    name: 'gpt35-model'
     properties: {
       model: {
         format: 'OpenAI'
