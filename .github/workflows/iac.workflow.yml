@@ -3,11 +3,10 @@ name: IAC CI & CD
 on:
   push:
     branches:
-      - master
+      - main
     paths:
-      - 'iac/**'
-      - '.github/workflows/iac.workflow.yml'
-
+      - "iac/**"
+      - ".github/workflows/iac.workflow.yml"
 
 env:
   ACTIONS_RUNNER_DEBUG: true
@@ -40,11 +39,11 @@ jobs:
       - name: Deploy
         uses: azure/CLI@v1
         env:
-            RG_NAME: "FamousSpeeches"
-            LOCATION: "australiaeast"
+          RG_NAME: "famous-speeches"
+          LOCATION: "australiaeast"
+          ENVIRONMENT: prd
         with:
           azcliversion: 2.55.0
           inlineScript: |
-            FamousSpeeches
             az group create --name ${{env.RG_NAME}} --location ${{env.LOCATION}}
-            az deployment group create --name ${{env.RG_NAME}}-prd --resource-group ${{env.RG_NAME}} --template-file iac/main.bicep --parameters iac/prd.json
+            az deployment group create --name fmsp${{env.ENVIRONMENT}} --resource-group ${{env.RG_NAME}} --template-file iac/main.bicep --parameters iac/${{env.ENVIRONMENT}}.json
