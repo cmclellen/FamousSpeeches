@@ -12,9 +12,8 @@ resource sa 'Microsoft.Storage/storageAccounts@2023-01-01' = {
   properties: {}
   tags: tags
 
-  resource blobs 'blobServices' = {
+  resource defaultBlobService 'blobServices' existing = {
     name: 'default'
-    properties: {}
 
     resource pdf_container 'containers' = {
       name: 'pdf_docs'
