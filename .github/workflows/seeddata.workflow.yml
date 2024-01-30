@@ -1,0 +1,37 @@
+name: Copy Seed Data
+
+on:
+  push:
+    branches:
+      - main
+      - feat1234
+    paths:
+      - "data/**"
+      - ".github/workflows/seeddata.workflow.yml"
+
+env:
+  ACTIONS_RUNNER_DEBUG: true
+
+defaults:
+  run:
+    working-directory: data
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment: github-pages
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - uses: bacongobbler/azure-blob-storage-upload@main
+        with:
+          source_dir: data
+          container_name: srcdata
+          connection_string: https://stfmspprd.blob.core.windows.net/
+          extra_args: "--pattern *.pdf"
+          overwrite: "false"
