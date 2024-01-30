@@ -32,6 +32,6 @@ jobs:
         with:
           source_dir: data
           container_name: srcdata
-          connection_string: https://stfmspprd.blob.core.windows.net/
+          connection_string: ${{ secrets.SEEDDATA_CONNECTION_STRING }}
           extra_args: "--pattern *.pdf"
           overwrite: "false"
