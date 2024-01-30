@@ -41,7 +41,7 @@ jobs:
       - name: Deploy
         uses: azure/CLI@v1
         env:
-            RG_NAME: "FamousSpeeches"
+            RG_NAME: "famous-speeches"
             LOCATION: "australiaeast"
         with:
           azcliversion: 2.55.0
