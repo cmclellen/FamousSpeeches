@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - feat1234
     paths:
       - "seeddata/**"
       - ".github/workflows/seeddata.workflow.yml"
