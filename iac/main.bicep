@@ -19,3 +19,12 @@ module ai './modules/ai.bicep' = {
     tags: tags
   }
 }
+
+module storage './modules/storage.bicep' = {
+  name: 'storage'
+  params: {
+    location: location
+    resourceNameFormat: resourceNameFormat
+    tags: tags
+  }
+}

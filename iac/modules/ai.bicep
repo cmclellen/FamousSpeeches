@@ -1,7 +1,5 @@
-param resourceNameFormat string
-
 param location string
-
+param resourceNameFormat string
 param tags object
 
 @allowed([
@@ -10,7 +8,7 @@ param tags object
 param sku string = 'S0'
 
 resource cognitiveService 'Microsoft.CognitiveServices/accounts@2023-10-01-preview' = {
-  name: format(resourceNameFormat, '', 'oai')
+  name: format(resourceNameFormat, 'oai', '')
   location: location
   tags: tags
   sku: {
@@ -36,6 +34,7 @@ resource cognitiveService 'Microsoft.CognitiveServices/accounts@2023-10-01-previ
         version: '2'
       }
     }
+    tags: tags
   }
 
   resource deployment_gpt35 'deployments' = {
@@ -47,5 +46,6 @@ resource cognitiveService 'Microsoft.CognitiveServices/accounts@2023-10-01-previ
         version: '0613'
       }
     }
+    tags: tags
   }
 }
