@@ -51,7 +51,7 @@ resource cognitiveService 'Microsoft.CognitiveServices/accounts@2023-10-01-previ
       model: {
         format: 'OpenAI'
         name: 'gpt-35-turbo'
-        version: '0613'
+        version: '1106'
       }
     }
     tags: tags
