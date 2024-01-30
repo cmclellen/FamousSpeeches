@@ -6,7 +6,7 @@ on:
       - main
       - feat1234
     paths:
-      - "data/**"
+      - "seeddata/**"
       - ".github/workflows/seeddata.workflow.yml"
 
 env:
@@ -14,7 +14,7 @@ env:
 
 defaults:
   run:
-    working-directory: data
+    working-directory: seeddata
 
 jobs:
   build-and-deploy:
@@ -30,7 +30,7 @@ jobs:
 
       - uses: bacongobbler/azure-blob-storage-upload@main
         with:
-          source_dir: data
+          source_dir: seeddata
           container_name: seeddata
           connection_string: ${{ secrets.SEEDDATA_CONNECTION_STRING }}
           extra_args: "--pattern *.pdf"
