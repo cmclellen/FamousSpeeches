@@ -10,7 +10,7 @@ const DesignPage: FC<DesignPageProps> = () => (
     <div className="container">
       <Heading>Overview</Heading>
       Retrieval Augmented Generation (RAG) builds on a LLM (Large Language Model) in a way that it references a specific knowledge base (famous speeches PDFs in this case) before returning a response, i.e. 
-      giving a chatbot relevant context of a particular subject that it'll use to generate a response to a user's questions with.
+      giving a chatbot relevant context of a particular subject that it'll use to generate a response to a user's question with.
       <Heading>Flowchart</Heading>
       <img src={flowpng} alt="Flowchart" className="img-fluid" />
       <Heading>Demo</Heading>
