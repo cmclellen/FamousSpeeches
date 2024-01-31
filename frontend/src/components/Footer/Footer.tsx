@@ -1,8 +1,7 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { FooterWrapper, Inner } from './Footer.styled';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAt, faEnvelope } from '@fortawesome/free-solid-svg-icons';
-
 
 interface FooterProps {}
 

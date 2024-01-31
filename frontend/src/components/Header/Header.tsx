@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { AppTitle, Brand, HeaderWrapper } from "./Header.styled";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
