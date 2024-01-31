@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - feature/AddFrontend
     paths:
       - 'frontend/**'
       - '.github/workflows/frontend.workflow.yml'
